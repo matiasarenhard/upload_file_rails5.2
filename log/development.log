@@ -12327,3 +12327,256 @@ Completed 200 OK in 59ms (Views: 56.6ms | ActiveRecord: 0.6ms)
   ↳ /usr/local/bin/rake:23
   [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
   ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateExamples (20180425181124)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "examples" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "purchaser_name" varchar, "item_description" varchar, "item_price" varchar, "purchase_count" varchar, "merchant_address" varchar, "merchant_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180425181124_create_examples.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180425181124"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateActiveStorageTables (20180425181246)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180425181246_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  ↳ db/migrate/20180425181246_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180425181246_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  ↳ db/migrate/20180425181246_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/migrate/20180425181246_create_active_storage_tables.active_storage.rb:16
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180425181246"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to DeviseCreateUsers (20180426132850)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180426132850_devise_create_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20180426132850_devise_create_users.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20180426132850_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180426132850"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-26 20:19:00.499908"], ["updated_at", "2018-04-26 20:19:00.499908"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@hotmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "admin@hotmail.com"], ["encrypted_password", "$2a$11$Gb9WbFp5c4gMnsO0URtXl./qlhEibEJkib.MdvDVABqoGDolilHdy"], ["created_at", "2018-04-26 20:19:05.232348"], ["updated_at", "2018-04-26 20:19:05.232348"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:1
+Started GET "/" for 127.0.0.1 at 2018-04-26 17:19:14 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by ExamplesController#index as HTML
+Completed 401 Unauthorized in 23ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-26 17:19:14 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 501ms (Views: 453.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-26 17:19:34 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vUxaNZuoNezx89bFWeg/1wxStXio7q9fuYuU4fwA0S3sR1DmMofF5kbNC1CfsOyDX4v2Cop7YKyF35PUfr+x7Q==", "user"=>{"email"=>"admin@hotmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@hotmail.com"], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-04-26 20:19:34.528568"], ["last_sign_in_at", "2018-04-26 20:19:34.528568"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-04-26 20:19:34.530284"], ["id", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 163ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 17:19:34 -0300
+Processing by ExamplesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering examples/index.html.erb within layouts/application
+  Rendered examples/_attach_form.html.erb (3.0ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  [1m[36mExample Load (0.1ms)[0m  [1m[34mSELECT "examples".* FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  Rendered examples/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 71ms (Views: 64.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/examples" for 127.0.0.1 at 2018-04-26 17:20:10 -0300
+Processing by ExamplesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8pw7tS8XDGqu8SZuhs+N80tbUpMB1aLPoPm098v/FhZnySinJRZEzuSojYRXHA/nOnm79TqbO9Sps1UorL1Sbg==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fa771740980 @tempfile=#<Tempfile:/tmp/RackMultipart20180426-7591-h18ypf.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">, "commit"=>"Upload"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/examples_controller.rb:43
+  [1m[36mExample Create (1.1ms)[0m  [1m[32mINSERT INTO "examples" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", "10.0"], ["purchase_count", "2"], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza\n"], ["created_at", "2018-04-26 20:20:10.421912"], ["updated_at", "2018-04-26 20:20:10.421912"]]
+  ↳ app/controllers/examples_controller.rb:43
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/examples_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/examples_controller.rb:43
+  [1m[36mExample Create (0.2ms)[0m  [1m[32mINSERT INTO "examples" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", "10.0"], ["purchase_count", "5"], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop\n"], ["created_at", "2018-04-26 20:20:10.438899"], ["updated_at", "2018-04-26 20:20:10.438899"]]
+  ↳ app/controllers/examples_controller.rb:43
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/examples_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/examples_controller.rb:43
+  [1m[36mExample Create (0.3ms)[0m  [1m[32mINSERT INTO "examples" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", "5.0"], ["purchase_count", "1"], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium\n"], ["created_at", "2018-04-26 20:20:10.447703"], ["updated_at", "2018-04-26 20:20:10.447703"]]
+  ↳ app/controllers/examples_controller.rb:43
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/examples_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/examples_controller.rb:43
+  [1m[36mExample Create (0.3ms)[0m  [1m[32mINSERT INTO "examples" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", "5.0"], ["purchase_count", "4"], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium\n"], ["created_at", "2018-04-26 20:20:10.457531"], ["updated_at", "2018-04-26 20:20:10.457531"]]
+  ↳ app/controllers/examples_controller.rb:43
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/examples_controller.rb:43
+Redirected to http://localhost:3000/examples
+Completed 302 Found in 74ms (ActiveRecord: 29.4ms)
+
+
+Started GET "/examples" for 127.0.0.1 at 2018-04-26 17:20:10 -0300
+Processing by ExamplesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering examples/index.html.erb within layouts/application
+  Rendered examples/_attach_form.html.erb (1.7ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  [1m[36mExample Load (0.1ms)[0m  [1m[34mSELECT "examples".* FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  Rendered examples/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 84ms (Views: 80.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/examples" for 127.0.0.1 at 2018-04-26 17:20:13 -0300
+Processing by ExamplesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T5K7NKS26vAhgYi8a3a/6sY9brrrC3hn5i2o6Li3urPax6gmrreiVGvYI1a6pT3+tx+H3NBF4XzvZ0k33/X+yw==", "commit"=>"Upload"}
+Redirected to http://localhost:3000/examples
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/examples" for 127.0.0.1 at 2018-04-26 17:20:13 -0300
+Processing by ExamplesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering examples/index.html.erb within layouts/application
+  Rendered examples/_attach_form.html.erb (2.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  [1m[36mExample Load (0.3ms)[0m  [1m[34mSELECT "examples".* FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  Rendered examples/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 127ms (Views: 122.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/examples/1/edit" for 127.0.0.1 at 2018-04-26 17:20:24 -0300
+Processing by ExamplesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExample Load (0.2ms)[0m  [1m[34mSELECT  "examples".* FROM "examples" WHERE "examples"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/examples_controller.rb:76
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering examples/edit.html.erb within layouts/application
+  Rendered examples/_form.html.erb (4.6ms)
+  Rendered examples/edit.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 54ms (Views: 50.3ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/examples/1" for 127.0.0.1 at 2018-04-26 17:20:31 -0300
+Processing by ExamplesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XvwCpr2Kuej8IU3hE05DDIbF5gLL2IdcCLowwG1ItdfMC/ow3LHDpv/8pJQ2NpMaalB6wh3Lp1Oyu6XRqpGgSA==", "example"=>{"purchaser_name"=>"Rodrigo", "item_description"=>"R$10 off R$20 of food", "item_price"=>"10.0", "purchase_count"=>"2", "merchant_address"=>"987 Fake St", "merchant_name"=>"Bob's Pizza"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mExample Load (0.2ms)[0m  [1m[34mSELECT  "examples".* FROM "examples" WHERE "examples"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/examples_controller.rb:76
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/examples_controller.rb:54
+  [1m[36mExample Update (0.8ms)[0m  [1m[33mUPDATE "examples" SET "purchaser_name" = ?, "merchant_name" = ?, "updated_at" = ? WHERE "examples"."id" = ?[0m  [["purchaser_name", "Rodrigo"], ["merchant_name", "Bob's Pizza"], ["updated_at", "2018-04-26 20:20:31.496363"], ["id", 1]]
+  ↳ app/controllers/examples_controller.rb:54
+  [1m[35m (10.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/examples_controller.rb:54
+Redirected to http://localhost:3000/examples
+Completed 302 Found in 30ms (ActiveRecord: 11.6ms)
+
+
+Started GET "/examples" for 127.0.0.1 at 2018-04-26 17:20:31 -0300
+Processing by ExamplesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering examples/index.html.erb within layouts/application
+  Rendered examples/_attach_form.html.erb (9.4ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  [1m[36mExample Load (0.3ms)[0m  [1m[34mSELECT "examples".* FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  Rendered examples/index.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 87ms (Views: 84.5ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/examples/1" for 127.0.0.1 at 2018-04-26 17:20:38 -0300
+Processing by ExamplesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"J0cjRtzzOnKZ5PPcOPHosi+j0ze/lNlNrG6H14OsIjWyEjBU1vJy1tO9WDbpImqmXoE6UYTaQFalJGYI5O5mTQ==", "id"=>"1"}
+  [1m[36mExample Load (0.1ms)[0m  [1m[34mSELECT  "examples".* FROM "examples" WHERE "examples"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/examples_controller.rb:76
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/examples_controller.rb:66
+  [1m[36mExample Destroy (0.6ms)[0m  [1m[31mDELETE FROM "examples" WHERE "examples"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/examples_controller.rb:66
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/examples_controller.rb:66
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Example"], ["name", "file"], ["LIMIT", 1]]
+  ↳ app/controllers/examples_controller.rb:66
+Redirected to http://localhost:3000/examples
+Completed 302 Found in 21ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/examples" for 127.0.0.1 at 2018-04-26 17:20:38 -0300
+Processing by ExamplesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering examples/index.html.erb within layouts/application
+  Rendered examples/_attach_form.html.erb (1.2ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  [1m[36mExample Load (0.1ms)[0m  [1m[34mSELECT "examples".* FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  Rendered examples/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 50ms (Views: 47.6ms | ActiveRecord: 0.4ms)
+
+

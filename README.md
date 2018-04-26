@@ -11,4 +11,5 @@
  - rake db:seed
 
 # Movie Tutorial
+ https://youtu.be/89XDZda0HSE
  
