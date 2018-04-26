@@ -12198,3 +12198,120 @@ Processing by ExamplesController#index as HTML
 Completed 200 OK in 52ms (Views: 48.2ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-04-26 16:04:50 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by ExamplesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering examples/index.html.erb within layouts/application
+  Rendered examples/_attach_form.html.erb (5.7ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  [1m[36mExample Load (0.1ms)[0m  [1m[34mSELECT "examples".* FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  Rendered examples/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 296ms (Views: 270.1ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-04-26 16:04:55 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qrW+ZjHsDlkjhCoVi6kpj7pgWj6d43uBdQOVsMMqLNtfhZnwkAeQD5AFTQHOBnCnEb2LB7dk1Cnsq9EfYYhwOA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 16:04:55 -0300
+Processing by ExamplesController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-26 16:04:55 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 49ms (Views: 47.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/examples" for 127.0.0.1 at 2018-04-26 16:13:26 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by ExamplesController#index as HTML
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-26 16:13:26 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 274ms (Views: 261.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-26 16:13:32 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ho+AeZ4VURBMvKxNLy5O+QViDDYK0jYSYFnjk0Pv6KUINYwgkBxrLnNyoaCf6lRU2CpNMSxP+UJ+x/5x3MVtKg==", "user"=>{"email"=>"admin@hotmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@hotmail.com"], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-04-26 19:13:32.162475"], ["last_sign_in_at", "2018-04-26 19:01:09.979191"], ["sign_in_count", 7], ["updated_at", "2018-04-26 19:13:32.163760"], ["id", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/examples
+Completed 302 Found in 155ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/examples" for 127.0.0.1 at 2018-04-26 16:13:32 -0300
+Processing by ExamplesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering examples/index.html.erb within layouts/application
+  Rendered examples/_attach_form.html.erb (3.2ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  [1m[36mExample Load (0.2ms)[0m  [1m[34mSELECT "examples".* FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  Rendered examples/index.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 86ms (Views: 78.5ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/examples/11" for 127.0.0.1 at 2018-04-26 16:13:37 -0300
+Processing by ExamplesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zI9RtDyBuNFoB9L/qcEIg7x47l1I/ITa/VnXE7bmbFTMZpsKqykm/TPOmOCH1+bhANMza4DnxE8ZSB8OxQabkQ==", "id"=>"11"}
+  [1m[36mExample Load (0.4ms)[0m  [1m[34mSELECT  "examples".* FROM "examples" WHERE "examples"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/examples_controller.rb:76
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/examples_controller.rb:66
+  [1m[36mExample Destroy (0.5ms)[0m  [1m[31mDELETE FROM "examples" WHERE "examples"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/examples_controller.rb:66
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/examples_controller.rb:66
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Example"], ["name", "file"], ["LIMIT", 1]]
+  ↳ app/controllers/examples_controller.rb:66
+Redirected to http://localhost:3000/examples
+Completed 302 Found in 24ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/examples" for 127.0.0.1 at 2018-04-26 16:13:37 -0300
+Processing by ExamplesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering examples/index.html.erb within layouts/application
+  Rendered examples/_attach_form.html.erb (3.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  [1m[36mExample Load (0.2ms)[0m  [1m[34mSELECT "examples".* FROM "examples"[0m
+  ↳ app/views/examples/index.html.erb:7
+  Rendered examples/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 59ms (Views: 56.6ms | ActiveRecord: 0.6ms)
+
+
