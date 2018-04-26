@@ -1,0 +1,53 @@
+require "application_system_test_case"
+
+class ExamplesTest < ApplicationSystemTestCase
+  setup do
+    @example = examples(:one)
+  end
+
+  test "visiting the index" do
+    visit examples_url
+    assert_selector "h1", text: "Examples"
+  end
+
+  test "creating a Example" do
+    visit examples_url
+    click_on "New Example"
+
+    fill_in "Item Description", with: @example.item_description
+    fill_in "Item Price", with: @example.item_price
+    fill_in "Merchant Address", with: @example.merchant_address
+    fill_in "Merchant Name", with: @example.merchant_name
+    fill_in "Purchase Count", with: @example.purchase_count
+    fill_in "Purchaser Name", with: @example.purchaser_name
+    click_on "Create Example"
+
+    assert_text "Example was successfully created"
+    click_on "Back"
+  end
+
+  test "updating a Example" do
+    visit examples_url
+    click_on "Edit", match: :first
+
+    fill_in "Item Description", with: @example.item_description
+    fill_in "Item Price", with: @example.item_price
+    fill_in "Merchant Address", with: @example.merchant_address
+    fill_in "Merchant Name", with: @example.merchant_name
+    fill_in "Purchase Count", with: @example.purchase_count
+    fill_in "Purchaser Name", with: @example.purchaser_name
+    click_on "Update Example"
+
+    assert_text "Example was successfully updated"
+    click_on "Back"
+  end
+
+  test "destroying a Example" do
+    visit examples_url
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
+
+    assert_text "Example was successfully destroyed"
+  end
+end

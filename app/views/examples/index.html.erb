@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Upload</h1>
+
+<%= render 'attach_form', example: @example %>
+<br>
+<br>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Purchaser Name</th>
+      <th scope="col">Item Description</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Purchase Count</th>
+      <th scope="col">Merchant Address</th>
+      <th scope="col">Merchant Name</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @examples.each do |example| %>
+        <tr>
+          <td><%= example.purchaser_name %></td>
+          <td><%= example.item_description %></td>
+          <td><%= example.item_price %></td>
+          <td><%= example.purchase_count %></td>
+          <td><%= example.merchant_address %></td>
+          <td><%= example.merchant_name %></td>
+          <td><%= link_to edit_example_path(example), class: "btn btn-outline-primary" do %>Edit<% end %>   <%= link_to example, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" do %>Delete<% end %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>

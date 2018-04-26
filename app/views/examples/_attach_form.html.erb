@@ -1,0 +1,13 @@
+<%= form_with(model: example, local: true, multipart: true) do |form| %>
+<div class="row align-items-center">
+    <div class="col-sm-4 field">
+        <%= form.label :file %>
+        <%= form.file_field :file %>
+    </div>
+    <div class="col-sm-1">
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
+  </div>
+<% end %>
