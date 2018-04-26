@@ -46,11 +46,14 @@ div {
   }
 }
 
-#notice {
-  color: green;
-  background-color: #5c925c;
+.notice {
+  color: white;
+  background-color: green;
   width: 400px;
+  margin: auto;
 }
+
+
 
 .field_with_errors {
   padding: 2px;

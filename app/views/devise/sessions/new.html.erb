@@ -1,5 +1,5 @@
 
-<div class="container" style="border: 2px solid black;border-radius: 5px; max-width: 400px;">
+<div class="container" style="box-shadow: 0px 2px 10px rgba(0,0,0,0.5); max-width: 400px; padding: 10px; background-color: white;">
 <h2 class="text-center">Log in</h2>
 
 
@@ -16,7 +16,7 @@
 
 
   <div class="actions text-center">
-    <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary", style: 'text-color: white;' %>
+    <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary", style: 'color: white;' %>
     <%= f.submit "Log in", class: "btn btn-success" %>
   </div>
 <% end %>
