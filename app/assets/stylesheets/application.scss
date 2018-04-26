@@ -16,3 +16,27 @@
  */
 @import "bootstrap";
 @import "font-awesome";
+
+.resume {
+  text-align: center;
+  background-color: green;
+  color: white;
+  width: 300px;
+  height: 20px;
+  margin-left: 38%;
+  border-radius: 4px;
+}
+
+
+.custom-notice {
+  background-color: red !important;
+  width: 400px;
+  margin-top: 10px;
+  border-radius: 2px;
+  height: 40px;
+  text-align: center;
+}
+
+.custom-alert{
+  background-color: blue !important;
+}

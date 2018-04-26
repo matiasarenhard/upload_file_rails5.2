@@ -12,11 +12,17 @@
         <div class="mx-auto order-0">
             <a class="navbar-brand mx-auto" href="https://github.com/matiasarenhard/upload_file_rails5.2">Matias Arenhard <i class="fa fa-github"></i> </a>
         </div>
+        <p class="navbar-text pull-right">
+       <% if user_signed_in? %>
+         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+       <% end %>
+     </p>
     </nav>
   </head>
-  <body class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body class="container" style="background-color: #ccc8c8;">
+    <br>
+    <p class="notice text-center"><%= notice %></p>
+    <p class="alert text-center"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

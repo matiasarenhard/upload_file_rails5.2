@@ -25,6 +25,11 @@ class ExamplesController < ApplicationController
   # POST /examples
   # POST /examples.json
   def create
+    if params[:file].nil? == true
+       flash[:notice] = "Please, select .tab file for upload"
+       redirect_to :examples
+       return
+    end
     File.foreach(params[:file].path).with_index do |line, index|
       if index > 0
          aux = line.split(/\t/)
@@ -38,7 +43,7 @@ class ExamplesController < ApplicationController
          example.save
       end
     end
-    flash[:warning] = "Xarabas"
+    flash[:notice] = "Successfully uploaded"
     redirect_to :examples
   end
 
@@ -47,8 +52,7 @@ class ExamplesController < ApplicationController
   def update
     respond_to do |format|
       if @example.update(example_params)
-        format.html { redirect_to @example, notice: 'Example was successfully updated.' }
-        format.json { render :show, status: :ok, location: @example }
+        format.html { redirect_to :examples, notice: 'Example was successfully updated.' }
       else
         format.html { render :edit }
         format.json { render json: @example.errors, status: :unprocessable_entity }
